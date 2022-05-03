@@ -22,9 +22,9 @@ describe('App tests', () => {
 
     screen.debug()
     const link = await screen.findByText('Rick Sanchez');
-    console.log('link~~~~~`', link.textContent)
+    
     userEvent.click(link);
 
-    // await screen.findByAltText('image of Rick Sanchez')
+    await screen.findByAltText('image of Rick Sanchez')
   })
 })
