@@ -12,5 +12,11 @@ describe('App tests', () => {
     screen.getByText(/loading/i)
 
     await screen.findByText('Rick Sanchez')
+
+    const headers = await screen.findAllByRole('heading', {
+      level: 4
+    })
+    
+    expect(headers.length).toEqual(20)
   })
 })

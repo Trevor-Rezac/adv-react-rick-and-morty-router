@@ -21,8 +21,11 @@ export default function CharacterList() {
     {isLoading
     ? <><p>Loading...</p><LoadingSpinner /></>
     : <div>
-      {characterList.map((character) => 
-      <h4>{character.name}</h4>
+      {characterList.map((character) => (
+        <div key={character.id}>
+          <h4>{character.name}</h4>
+        </div>
+      )
       )}
     </div>
 }
