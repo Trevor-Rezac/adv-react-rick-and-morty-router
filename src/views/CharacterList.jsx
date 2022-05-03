@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { Link } from 'react-router-dom'
 
 export default function CharacterList() {
   const [characterList, setCharacterList] = useState([]);
@@ -22,9 +23,9 @@ export default function CharacterList() {
     ? <><p>Loading...</p><LoadingSpinner /></>
     : <div>
       {characterList.map((character) => (
-        <div key={character.id}>
-          <h4>{character.name}</h4>
-        </div>
+          <Link key={character.id} to={`/characters/${character.id}`}> 
+            <h4>{character.name}</h4>
+          </Link>      
       )
       )}
     </div>

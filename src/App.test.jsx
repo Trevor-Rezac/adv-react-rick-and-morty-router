@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App'
 describe('App tests', () => {
-  it('should render a list of characters on load', async () => {
+  it('should render a list of characters. upon clicking character links, user should see an image of the character', async () => {
     render(
     <MemoryRouter>
       <App />
@@ -18,5 +19,12 @@ describe('App tests', () => {
     })
     
     expect(headers.length).toEqual(20)
+
+    screen.debug()
+    const link = await screen.findByText('Rick Sanchez');
+    console.log('link~~~~~`', link.textContent)
+    userEvent.click(link);
+
+    // await screen.findByAltText('image of Rick Sanchez')
   })
 })
